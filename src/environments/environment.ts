@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-
+  /*
   authUrl: 'http://localhost:3000/api/login',
   bancosURL: 'http://localhost:3000/api/banco',
   tipoCuentasURL: 'http://localhost:3000/api/tipocuenta',
@@ -12,7 +12,16 @@ export const environment = {
   transaUrl: 'http://localhost:3000/api/transa',
   usuariosUrl: 'http://localhost:3000/api/usuarios',
   transaccionUrl: 'http://localhost:3000/api/transaccion',
-  historialUrl: 'http://localhost:3000/api/historial',
+  historialUrl: 'http://localhost:3000/api/historial',*/
+
+  authUrl: 'https://app-desafio-banco-ripley.herokuapp.com/api/login',
+  bancosURL: 'https://app-desafio-banco-ripley.herokuapp.com/api/banco',
+  tipoCuentasURL: 'https://app-desafio-banco-ripley.herokuapp.com/api/tipocuenta',
+  destinatariosURL: 'https://app-desafio-banco-ripley.herokuapp.com/api/destinatario',
+  transaUrl: 'https://app-desafio-banco-ripley.herokuapp.com/api/transa',
+  usuariosUrl: 'https://app-desafio-banco-ripley.herokuapp.com/api/usuarios',
+  transaccionUrl: 'https://app-desafio-banco-ripley.herokuapp.com/api/transaccion',
+  historialUrl: 'https://app-desafio-banco-ripley.herokuapp.com/api/historial',
 };
 
 /*

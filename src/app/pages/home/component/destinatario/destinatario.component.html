@@ -1,0 +1,57 @@
+<h3 class="mt-4">Destinatarios</h3>
+<hr>
+<section class="destinatario">
+    <form class="p-3" [formGroup]="destinatarioForm.baseForm" (ngSubmit)="onCreate()">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="inputRut">Rut</label>
+            <input type="email" formControlName="rut" class="form-control" id="inputRut" placeholder="Rut" required>
+            <small class="text-danger" *ngIf="validarCampo('rut')"> {{ destinatarioForm.error }}</small>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputNombre">Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control" id="inputNombre" placeholder="Nombre" required>
+            <small class="text-danger" *ngIf="validarCampo('nombre')"> {{ destinatarioForm.error }}</small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="inputCorreo">Correo</label>
+            <input type="text" formControlName="correo" class="form-control" id="inputCorreo" required>
+            <small class="text-danger" *ngIf="validarCampo('correo')"> {{ destinatarioForm.error }}</small>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputTelefono">Teléfono</label>
+            <input type="text" formControlName="telefono" class="form-control" id="inputTelefono" required>
+            <small class="text-danger" *ngIf="validarCampo('telefono')"> {{ destinatarioForm.error }}</small>
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputBanco">Banco</label>
+                <select id="inputBanco" formControlName="id_banco" class="form-control" required>
+                    <option selected>Seleccione...</option>
+                    <option [value]="banco.id" *ngFor="let banco of bancos">{{ banco.name }}</option>
+                </select>
+                <small class="text-danger" *ngIf="validarCampo('id_banco')"> {{ destinatarioForm.error }}</small>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputCuenta">Tipo de Cuenta</label>
+                <select id="inputCuenta" formControlName="id_tipo_cuenta" class="form-control" required>
+                    <option selected>Seleccione...</option>
+                    <option [value]="cuenta.id" *ngFor="let cuenta of tipoCuentas">{{ cuenta.nombre }}</option>
+                </select>
+                <small class="text-danger" *ngIf="validarCampo('id_tipo_cuenta')"> {{ destinatarioForm.error }}</small>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputNumeroCuenta">N° de Cuenta</label>
+                <input type="text" formControlName="numero_cuenta" class="form-control" id="inputNumeroCuenta" required>
+                <small class="text-danger" *ngIf="validarCampo('numero_cuenta')"> {{ destinatarioForm.error }}</small>
+            </div>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary" [disabled]="destinatarioForm.baseForm.invalid">Crear</button>
+    </form>
+</section>

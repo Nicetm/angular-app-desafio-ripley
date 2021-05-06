@@ -1,0 +1,18 @@
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div class="bg-ripley border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading bg-dark text-white">Banco Ripley</div>
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-ripley" routerLink="/home/destinatario">Destinatarios</a>
+            <a class="list-group-item list-group-item-action bg-ripley" routerLink="/home/transferencia">Transferir</a>
+            <a class="list-group-item list-group-item-action bg-ripley" routerLink="/home/historial">Historial</a>
+        </div>
+    </div>
+    <!-- Page Content-->
+    <div id="page-content-wrapper">
+        <app-header></app-header>
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

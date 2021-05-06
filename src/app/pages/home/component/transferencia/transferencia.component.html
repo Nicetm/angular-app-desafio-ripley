@@ -1,0 +1,42 @@
+<h3 class="mt-4">Transferir</h3>
+<hr>
+<section class="tranferir">
+    <form class="p-3" [formGroup]="transferenciaForm.baseForm" (ngSubmit)="onCreate()">
+      <div class="form-row">
+        <div class="col-md-3 alert-success">
+          <p>Su saldo actual es de: {{ saldoCliente | currency }}</p>
+        </div>
+      </div>
+      <hr>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="inputNombre">Buscar Destinatario</label>
+          <select id="inputNombre" formControlName="id_destinatario" class="form-control" (change)="buscarDestinatario($event.target.value)" required>
+            <option selected value="0">Seleccione...</option>
+            <option [value]="cuenta.id_destinatario" *ngFor="let cuenta of destinatarios">{{ cuenta.nombre }}</option>
+          </select>
+          <small class="text-danger" *ngIf="validarCampo('id_destinatario')"> {{ transferenciaForm.error }}</small>
+          <small class="text-danger"></small>
+        </div>
+      </div>
+      <hr>
+      <div class="col-md-5" *ngIf="destinatario">
+        <h5 class="mt-4">Detalle del Destinatario</h5>
+        <ul class="list">
+          <li class="list-item">Nombre: {{ destinatario.nombre }}</li>
+          <li class="list-item">Correo: {{ destinatario.correo }}</li>
+          <li class="list-item">Banco: {{ bancoDestinatario }}</li>
+          <li class="list-item">N° Cuenta: {{ destinatario.numero_cuenta }}</li>
+          <li class="list-item">Tipo Cuenta: {{ destinatario.nombre_cuenta }}</li>
+        </ul>
+        <div class="form-group col-md-4">
+          <label for="inputMonto">Monto</label>
+          <input type="text" formControlName="monto" (change)="formatoMoneda($event.target.value)" class="form-control" id="inputMonto" value="{{ formatoMonto }}" required>
+          <small class="text-danger" *ngIf="validarCampo('monto')"> {{ transferenciaForm.error }}</small>
+          <small class="text-danger" *ngIf="errorSaldo"> Monto no puede ser mayor al Saldo</small>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary" [disabled]="transferenciaForm.baseForm.invalid">Transferir</button>
+      </div>
+    </form>
+</section>

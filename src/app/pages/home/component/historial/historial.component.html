@@ -1,0 +1,28 @@
+<h3 class="mt-4">Historial de Transferencias</h3>
+<hr>
+<section class="historial">
+    <table class="table table-striped table-hover table-sm col-md-6">
+        <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Hora</th>
+              <th scope="col">Destinatario</th>
+              <th scope="col">Banco</th>
+              <th scope="col">Tipo Cuenta</th>
+              <th scope="col">Monto</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let histo of historial;">
+                <td scope="row">{{ histo.id }}</td>
+                <td>{{ histo.fecha | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ histo.hora }}</td>
+                <td>{{ histo.destinatario }}</td>
+                <td>{{ buscarBancoPorId(histo.id_banco) }}</td>
+                <td>{{ histo.tipo_cuenta}}</td>
+                <td>{{ histo.monto | currency }}</td>
+              </tr>
+          </tbody>
+    </table>
+</section>
